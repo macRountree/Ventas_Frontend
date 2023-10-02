@@ -1,1 +1,11 @@
 @use 'base/variables' as v; 
+
+
+.header{
+    background-color: v.$negro;
+
+    &__heading{
+        color: v.$blanco;
+        margin-top: 5rem;
+    }
+}

@@ -318,6 +318,7 @@ html {
 
 body {
   font-family: sans-serif;
+  background-color: #000000;
 }
 
 p {
@@ -349,4 +350,12 @@ h2 {
 
 h3 {
   font-size: 3rem;
+}
+
+.header {
+  background-color: #000000;
+}
+.header__heading {
+  color: #ffffff;
+  margin-top: 5rem;
 }
