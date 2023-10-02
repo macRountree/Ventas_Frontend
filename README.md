@@ -47,9 +47,3 @@ Ventas/               # Carpeta principal del proyecto
 
 ## Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
----
-
-Proyecto desarrollado por Janeth Montero como proyecto de la clase Desarrollo Frontend. Con este proyecto se pretende adentrar a los estudiantes en los temas estudiados.
-Contacto: janeth.montero@unison.mx | [LinkedIn](https://www.linkedin.com/in/janeth-montero/)

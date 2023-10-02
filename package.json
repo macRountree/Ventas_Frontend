@@ -1,0 +1,33 @@
+{
+  "name": "ventas_frontend",
+  "version": "1.0.0",
+  "description": "Proyecto de ventas para la materia de Diseño Frontend",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:assets/css",
+    "tarea": "gulp tarea",
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macRountree/Ventas_Frontend.git"
+  },
+  "keywords": [
+    "HTML",
+    "SASS",
+    "CSS",
+    "JS"
+  ],
+  "author": "Moreno_Laines, Rountree_Robles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macRountree/Ventas_Frontend/issues"
+  },
+  "homepage": "https://github.com/macRountree/Ventas_Frontend#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.68.0"
+  }
+}
