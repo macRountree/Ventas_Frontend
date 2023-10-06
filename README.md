@@ -27,7 +27,7 @@ Ventas/               # Carpeta principal del proyecto
 │   └── img/          # Carpeta para images estaticas
 │
 │
-├── real-estate/      # Carpeta para el catalogo de modelos
+├── catalogs/      # Carpeta para el catalogo de modelos
 │   ├── index.html    # Página HTML de modelos
 │   ├── script.js     # JavaScript específico de modelos
 │   └── styles.scss   # Estilos SCSS específicos de modelos
