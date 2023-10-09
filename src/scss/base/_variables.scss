@@ -1,9 +1,17 @@
-//Tipografia
+//Fuentes
 
-$fuente_principal: sans-serif;
+$fuente_principal: "Roboto", sans-serif;
 
+//Media Queries
+$smart: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$desktopXl: 1200px;
 
 //Colores
+$primario: #240d6ec9;
+$secundario: #bcaf1a;
+$ghost: #04af5f;
 $negro: #000000;
 $blanco: #ffffff;
 //

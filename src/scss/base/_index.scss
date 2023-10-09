@@ -1,4 +1,6 @@
-@forward 'variables';  //primero variebles
-@forward 'normalize';  //aplicar normalize
-@forward 'mixins';  
-@forward 'globales'; 
+@forward "variables"; //primero variebles
+@forward "normalize"; //aplicar normalize
+
+@forward "mixins";
+@forward "tipografia";
+@forward "globales";
