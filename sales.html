@@ -17,16 +17,44 @@
     <link rel="stylesheet" href="/assets/css/app.css" />
   </head>
   <body>
-    <header class="contenedor header">
-      <h2 class="header__heading">Hola</h2>
-      <nav>
-        <ul>
-          <li><a href="./index.html">Inicio</a></li>
-          <li><a href="./catalogs.html">Modelos</a></li>
-          <li><a href="./sales.html">Ventas</a></li>
+    <header class="header">
+      <div class="header__sitename contenedor">
+        <div class="logo">
+          <img src="./assets/img/pacman.svg" alt="logoPacman" />
+        </div>
+
+        <div class="header__title">
+          <h1 class="header__name">G</h1>
+          <span
+            ><img class="logo" src="./assets/img/ghost.svg" alt="ghost"
+          /></span>
+          <h1 class="header__name">MERZ</h1>
+        </div>
+      </div>
+      <nav class="contenedor">
+        <ul class="navbar dropdown-child">
+          <!-- <li><a href="./index.html">Inicio</a></li> -->
+          <li><a href="./catalogs.html">Catálogos</a></li>
+          <li><a href="./sales.html" class="active">Ventas</a></li>
         </ul>
       </nav>
     </header>
+
+    <footer class="footer">
+      <div class="header__sitename contenedor">
+        <div class="logo">
+          <img src="./assets/img/pacman.svg" alt="logoPacman" />
+        </div>
+
+        <div class="header__title">
+          <h1 class="header__name">G</h1>
+          <span
+            ><img class="logo" src="./assets/img/ghost.svg" alt="ghost"
+          /></span>
+          <h1 class="header__name">MERZ</h1>
+        </div>
+      </div>
+    </footer>
     <script src="./js/app.js"></script>
   </body>
 </html>
