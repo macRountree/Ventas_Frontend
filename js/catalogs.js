@@ -3,12 +3,45 @@ import { gamesArray } from "./games.js";
 // Código especifico para Catalogo
 
 //============= Variables
+// gamesArray.forEach((game) => {
+//   inyect(game);
+// });
 
-gamesArray.forEach((game) => {
-  inyect(game);
+const filter = document.getElementById('filtro__select');
+let filterValue = '';
+
+filter.addEventListener('change', () => {
+  filterValue = filter.value;
+  filterApp(filterValue);
 });
 
+filterApp();
+
 // ===============Funciones
+
+function filterApp(filter) {
+  if (filter) {
+    console.log(filter);
+    let counter = 0;
+    gamesArray.forEach((game) => {
+      const platforms = Object.keys(game.plataforma);
+      if (platforms.includes(filter)) {
+        console.log(platforms);
+        
+        if (counter===0) {
+          document.getElementsByName("productos__grid")[0].innerHTML='';
+        }
+        inyect(game);
+        counter++;
+      }
+
+    });
+  } else {
+    gamesArray.forEach((game) => {
+      inyect(game);
+    });
+  }
+}
 
 function inyect(game) {
   let divProductosGrid = document.getElementsByName("productos__grid")[0];

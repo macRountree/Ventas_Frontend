@@ -65,7 +65,7 @@
   a {
     color: v.$blanco;
     font-weight: bold;
-    padding: 1.5rem 2rem;
+    padding: 0.5rem 2rem;
     border: 1px solid v.$blanco;
     border-radius: 1rem;
     transition: background-color 0.3s;
@@ -82,5 +82,4 @@
   background-color: lighten(v.$primario, 70%);
   color: v.$ghost;
 }
-
 //

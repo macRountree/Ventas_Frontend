@@ -34,7 +34,7 @@ export const gamesArray = [
     id: 3,
     name: "The Legend of Zelda: Tears of  the Kingdom",
     src: "cover_03.webp",
-    precio: "39.99",
+    precio: "69.99",
     descripcion: `
              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
              Assumenda cum labore, sit earum ipsa repellendus? Aperiam, iste

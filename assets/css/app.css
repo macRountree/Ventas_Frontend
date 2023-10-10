@@ -484,7 +484,7 @@ ul {
 .navbar a {
   color: #ffffff;
   font-weight: bold;
-  padding: 1.5rem 2rem;
+  padding: 0.5rem 2rem;
   border: 1px solid #ffffff;
   border-radius: 1rem;
   transition: background-color 0.3s;
@@ -637,13 +637,13 @@ ul {
 .submenu #carrito {
   display: none;
 }
-.submenu #carrito:hover {
+.submenu:hover #carrito {
   display: block;
   position: absolute;
   right: 0;
   top: 100%;
   z-index: 1;
-  background-color: white;
+  background-color: rgba(18, 8, 52, 0.7882352941);
   padding: 20px;
   min-height: 400px;
   min-width: 300px;
@@ -656,8 +656,12 @@ ul {
 .borrar-curso {
   background-color: red;
   border-radius: 50%;
-  padding: 5px 10px;
+  padding: 1px 1px;
   text-decoration: none;
   color: white;
   font-weight: bold;
+}
+
+#vaciar-carrito {
+  margin-top: 5rem;
 }
