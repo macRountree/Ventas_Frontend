@@ -535,6 +535,7 @@ ul {
   position: relative;
   margin: 0 auto;
   width: auto;
+  height: 30rem;
   animation-duration: 2s;
   animation-delay: 0s;
   animation-timing-function: ease-in-out;

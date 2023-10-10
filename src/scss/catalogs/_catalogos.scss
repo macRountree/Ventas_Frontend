@@ -24,6 +24,7 @@
     // right: 0;
     // bottom: 0;
     width: auto;
+    height: 30rem;
     @include m.mostrarProducto;
   }
   &__nombre {
