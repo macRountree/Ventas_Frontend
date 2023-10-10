@@ -82,3 +82,15 @@
   margin: 0;
   font-size: 1.4rem;
 }
+
+.filtro__select {
+  display: block;
+  margin-bottom: 5rem;
+  padding: 1rem;
+  background-color: v.$primario;
+  color: v.$blanco;
+  font-weight: bold;
+  // margin: ;
+
+  // margin-bottom: 6rem;
+}

@@ -39,15 +39,47 @@
         <ul class="navbar dropdown-child">
           <!-- <li><a href="./index.html">Inicio</a></li> -->
           <li><a href="./catalogs.html" class="active">Catálogo</a></li>
-          <li><a href="./sales.html">Ventas</a></li>
+          <li class="submenu">
+            <img
+              src="./assets/img/cart.webp"
+              id="img-carrito"
+              class="img-carrito"
+            />
+            <div id="carrito">
+              <table id="lista-carrito" class="u-full-width">
+                <thead>
+                  <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <!-- tbody esta vacio porque se le agregaran articulos dinamicamente -->
+                <tbody></tbody>
+              </table>
+
+              <a href="#" id="vaciar-carrito" class="button u-full-width"
+                >Vaciar Carrito</a
+              >
+            </div>
+          </li>
         </ul>
       </nav>
     </header>
 
     <main class="contenedor text-center productos">
       <h2 class="productos__heading">Catálogo de Videojuegos</h2>
-
-      <div class="productos__grid" id="productos__grid">
+      <select name="" id="filtro__select" class="filtro__select">
+        <option value="Seleccionar" disabled selected>
+          Selecciona la Plataforma
+        </option>
+        <option value="ps">PlayStation</option>
+        <option value="switch">Switch</option>
+        <option value="xbox">Xbox</option>
+      </select>
+      <div class="productos__grid" name="productos__grid" id="lista-cursos">
         <!-- <div class="producto">
           <img
             src="./assets/img/cover_02.webp"
@@ -207,5 +239,6 @@
     <script src="./js/app.js"></script>
     <script type="module" src="./js/games.js"></script>
     <script type="module" src="./js/catalogs.js"></script>
+    <script src="./js/sales.js" type="module"></script>
   </body>
 </html>
