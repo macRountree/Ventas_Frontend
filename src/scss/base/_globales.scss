@@ -16,8 +16,8 @@ body {
 }
 
 p {
-  font-size: 2rem;
-  color: v.$negro;
+  font-size: 1.5rem;
+  color: v.$primario;
 }
 
 .contenedor {
@@ -40,9 +40,11 @@ h1 {
 }
 h2 {
   font-size: 3.6rem;
+  color: v.$primario;
 }
 h3 {
-  font-size: 3rem;
+  font-size: 2.4rem;
+  color: v.$primario;
 }
 img {
   max-width: 100%;

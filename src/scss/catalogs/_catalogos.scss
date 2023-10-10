@@ -1,0 +1,32 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.productos {
+  &__grid {
+    @include m.tablet {
+      @include m.grid(2, 5rem);
+    }
+    @include m.desktop {
+      @include m.grid(3, 5rem);
+    }
+  }
+}
+
+.producto {
+  &__imagen {
+    display: block;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 15rem;
+    @include m.mostrarProducto;
+  }
+  &__nombre {
+    margin-bottom: 1rem;
+  }
+
+  &__descripcion {
+    text-align: justify;
+    line-height: 1.1;
+  }
+}
