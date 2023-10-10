@@ -34,6 +34,28 @@ function inyect(game) {
     let divProductoPlataformas = document.createElement('div');
     divProductoPlataformas.className += 'producto__plataformas';
 
+    let pProductoDisponible = document.createElement('p');
+    pProductoDisponible.className += 'producto__disponible';
+    pProductoDisponible.innerHTML='Disponible en';
+
+    divProductoPlataformas.appendChild(pProductoDisponible);
+
+    let divProductoPlataforma = document.createElement('div');
+    divProductoPlataforma.className+='producto__plataforma';
+
+    const gamePlatform = Object.values(game.plataforma);
+
+    gamePlatform.forEach(source => {
+        let imgPlataforma = document.createElement('img');
+        imgPlataforma.className+='producto__logo';
+        imgPlataforma.setAttribute('src',source);
+        imgPlataforma.setAttribute('alt',`logo PS`);
+    
+        divProductoPlataforma.appendChild(imgPlataforma);
+    });
+
+    divProductoPlataformas.appendChild(divProductoPlataforma);
+
     divProductoContainer.appendChild(divProductoPlataformas);
 
     let pProductoDescripcion = document.createElement('p');
@@ -65,10 +87,12 @@ function inyect(game) {
 
     divProductoContainer.appendChild(pPrecio);
 
-    let aEnlace = document.createElement('a');
-    aEnlace.setAttribute('href', '');
+    let aAñadirVenta = document.createElement('a');
+    aAñadirVenta.className+='producto__btn';
+    aAñadirVenta.setAttribute('href', '');
+    aAñadirVenta.innerHTML = 'Añadir a Venta';
 
-    divProductoContainer.appendChild(aEnlace);
+    divProductoContainer.appendChild(aAñadirVenta);
 
     divProducto.appendChild(divProductoContainer);
 
@@ -77,29 +101,7 @@ function inyect(game) {
 
 /**
  
-<div class="producto">
-    <img
-    src="./assets/img/cover_01.webp"
-    alt="cover_01 webp"
-    class="producto__imagen"
-    />
-    <div class="producto__container">
-        <h3 class="producto__nombre">Marvel's Spiderman</h3>
-        <div class="producto__plataformas"></div>
-        <p class="producto__descripcion">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Assumenda cum labore, sit earum ipsa repellendus? Aperiam, iste
-            cumque ad expedita officiis ea, eius veniam harum odio ex pariatur
-            deleniti distinctio?
-        </p>
-        <div class="producto__flex">
-            <p class="puntaje">4.7/5</p>
-            <img src="./assets/img/estrellas.webp" alt="estrellas_producto" />
-        </div>
-        <p class="producto__precio">$29.99</p>
-        <a href=""></a>
-    </div>
-</div>
+
 
 
  */
