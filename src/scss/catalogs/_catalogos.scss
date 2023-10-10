@@ -3,11 +3,15 @@
 
 .productos {
   &__grid {
-    @include m.tablet {
+    @include m.grid(1, 3rem);
+    @include m.smart {
       @include m.grid(2, 5rem);
     }
+    @include m.tablet {
+      @include m.grid(3, 2rem);
+    }
     @include m.desktop {
-      @include m.grid(3, 5rem);
+      @include m.grid(4, 5rem);
     }
   }
 }
@@ -16,17 +20,65 @@
   &__imagen {
     display: block;
     position: relative;
-    right: 0;
-    bottom: 0;
-    width: 15rem;
+    margin: 0 auto;
+    // right: 0;
+    // bottom: 0;
+    width: auto;
+    height: 30rem;
     @include m.mostrarProducto;
   }
   &__nombre {
-    margin-bottom: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  &__plataformas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__disponible {
+    margin: 0;
+  }
+
+  &__plataforma {
+    display: flex;
+  }
+
+  &__logo {
+    width: 3rem;
   }
 
   &__descripcion {
     text-align: justify;
-    line-height: 1.1;
+    line-height: 1;
   }
+
+  &__flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    img {
+      height: 1.5rem;
+    }
+  }
+
+  &__precio {
+    font-weight: bold;
+    text-align: left;
+    color: v.$ghost;
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  &__btn {
+    @include m.boton(v.$primario, v.$blanco);
+    display: block;
+  }
+}
+
+.puntaje {
+  margin: 0;
+  font-size: 1.4rem;
 }
