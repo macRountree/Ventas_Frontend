@@ -11,7 +11,7 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      play: `./assets/img/playstation-svgrepo-com.svg`,
+      play: `../../assets/img/playstation-svgrepo-com.svg`,
     },
   },
   {
@@ -26,8 +26,8 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      play: `./assets/img/playstation-svgrepo-com.svg`,
-      //   xbox: `./assets/img/xbox-svgrepo-com.svg`,
+      play: `../../assets/img/playstation-svgrepo-com.svg`,
+      //   xbox: `../../assets/img/xbox-svgrepo-com.svg`,
     },
   },
   {
@@ -42,9 +42,9 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      //    play:`./assets/img/playstation-svgrepo-com.svg`,
-      switch: `./assets/img/switch-filled-svgrepo-com.svg`,
-      // xbox:`./assets/img/xbox-svgrepo-com.svg`,
+      //    play:`../../assets/img/playstation-svgrepo-com.svg`,
+      switch: `../../assets/img/switch-filled-svgrepo-com.svg`,
+      // xbox:`../../assets/img/xbox-svgrepo-com.svg`,
     },
   },
   {
@@ -59,8 +59,8 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      //   switch: `./assets/img/switch-filled-svgrepo-com.svg`,
-      play: `./assets/img/playstation-svgrepo-com.svg`,
+      //   switch: `../../assets/img/switch-filled-svgrepo-com.svg`,
+      play: `../../assets/img/playstation-svgrepo-com.svg`,
     },
   },
   {
@@ -75,7 +75,7 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      switch: `./assets/img/switch-filled-svgrepo-com.svg`,
+      switch: `../../assets/img/switch-filled-svgrepo-com.svg`,
     },
   },
   {
@@ -90,7 +90,7 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      switch: `./assets/img/switch-filled-svgrepo-com.svg`,
+      switch: `../../assets/img/switch-filled-svgrepo-com.svg`,
     },
   },
   {
@@ -105,7 +105,7 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      switch: `./assets/img/switch-filled-svgrepo-com.svg`,
+      switch: `../../assets/img/switch-filled-svgrepo-com.svg`,
     },
   },
   {
@@ -120,9 +120,9 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      //   switch: `./assets/img/switch-filled-svgrepo-com.svg`,
-      xbox: `./assets/img/xbox-svgrepo-com.svg`,
-      play: `./assets/img/playstation-svgrepo-com.svg`,
+      //   switch: `../../assets/img/switch-filled-svgrepo-com.svg`,
+      xbox: `../../assets/img/xbox-svgrepo-com.svg`,
+      play: `../../assets/img/playstation-svgrepo-com.svg`,
     },
   },
   {
@@ -137,9 +137,9 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      switch: `./assets/img/switch-filled-svgrepo-com.svg`,
-      play: `./assets/img/playstation-svgrepo-com.svg`,
-      xbox: `./assets/img/xbox-svgrepo-com.svg`,
+      switch: `../../assets/img/switch-filled-svgrepo-com.svg`,
+      play: `../../assets/img/playstation-svgrepo-com.svg`,
+      xbox: `../../assets/img/xbox-svgrepo-com.svg`,
     },
   },
   {
@@ -154,7 +154,7 @@ export const gamesArray = [
              deleniti distinctio?
         `,
     plataforma: {
-      play: `./assets/img/playstation-svgrepo-com.svg`,
+      play: `../../assets/img/playstation-svgrepo-com.svg`,
     },
   },
 ];

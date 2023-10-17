@@ -51,7 +51,7 @@ function inyect(game) {
 
   let imgProduct = document.createElement("img");
   imgProduct.className += "producto__imagen";
-  imgProduct.setAttribute("src", `./assets/img/${game.src}`);
+  imgProduct.setAttribute("src", `../../assets/img/${game.src}`);
   imgProduct.setAttribute("alt", "cover_01 webp");
 
   divProducto.appendChild(imgProduct);
@@ -108,7 +108,7 @@ function inyect(game) {
   divProductoFlex.appendChild(pPuntaje);
 
   let imgEstrellas = document.createElement("img");
-  imgEstrellas.setAttribute("src", "./assets/img/estrellas.webp");
+  imgEstrellas.setAttribute("src", "../../assets/img/estrellas.webp");
   imgEstrellas.setAttribute("alt", "estrellas_producto");
 
   divProductoFlex.appendChild(imgEstrellas);
