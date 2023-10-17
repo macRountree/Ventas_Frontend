@@ -15,11 +15,20 @@ filter.addEventListener('change', () => {
   filterApp(filterValue);
 });
 
-filterApp();
+if (localStorage.getItem('filtrado')) {
+  const arreglo = JSON.parse(localStorage.getItem('filtrado'));
+  arreglo.forEach(game => {
+    inyect(game)
+  });
+} else {
+  filterApp();
+}
+
 
 // ===============Funciones
 
 function filterApp(filter) {
+  let arregloFiltrado = [];
   if (filter) {
     console.log(filter);
     let counter = 0;
@@ -27,7 +36,7 @@ function filterApp(filter) {
       const platforms = Object.keys(game.plataforma);
       if (platforms.includes(filter)) {
         console.log(platforms);
-        
+        arregloFiltrado.push(game);
         if (counter===0) {
           document.getElementsByName("productos__grid")[0].innerHTML='';
         }
@@ -36,6 +45,7 @@ function filterApp(filter) {
       }
 
     });
+    localStorage.setItem('filtrado',JSON.stringify(arregloFiltrado));
   } else {
     gamesArray.forEach((game) => {
       inyect(game);
