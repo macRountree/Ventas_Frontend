@@ -1,21 +1,15 @@
-//import { gamesArray } from "./games.js";
+import { axiosCommon } from "./common/axios.js";
 const axios = window.axios;
 // Código especifico para Catalogo
 // https://stackoverflow.com/questions/70566856/cors-the-access-control-allow-origin-header-has-a-value-http-localhost300
 async function getGames() {
-    const {data:{data}} = await axios.get('https://perfect-pig-fashion.cyclic.app/api/sales',{
-      headers:{
-        "Content-Type":"application/json"
-      },
-    });
+  const { data: { data } } = await axiosCommon.getAll(axios,'/api/catalogs');
 
-    //console.log(data);
-
-    return data;
+  return data;
 }
 
-let gamesArray = await getGames().then(data=>data).catch(error=>console.log(error));
-console.log(gamesArray);
+let gamesArray = await getGames().then(data => data).catch(error => console.log(error));
+
 //============= Variables
 // gamesArray.forEach((game) => {
 //   inyect(game);
