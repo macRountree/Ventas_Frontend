@@ -1,7 +1,21 @@
-import { gamesArray } from "./games.js";
-
+//import { gamesArray } from "./games.js";
+const axios = window.axios;
 // Código especifico para Catalogo
+// https://stackoverflow.com/questions/70566856/cors-the-access-control-allow-origin-header-has-a-value-http-localhost300
+async function getGames() {
+    const {data:{data}} = await axios.get('https://perfect-pig-fashion.cyclic.app/api/sales',{
+      headers:{
+        "Content-Type":"application/json"
+      },
+    });
 
+    //console.log(data);
+
+    return data;
+}
+
+let gamesArray = await getGames().then(data=>data).catch(error=>console.log(error));
+console.log(gamesArray);
 //============= Variables
 // gamesArray.forEach((game) => {
 //   inyect(game);
@@ -37,15 +51,15 @@ function filterApp(filter) {
       if (platforms.includes(filter)) {
         console.log(platforms);
         arregloFiltrado.push(game);
-        if (counter===0) {
-          document.getElementsByName("productos__grid")[0].innerHTML='';
+        if (counter === 0) {
+          document.getElementsByName("productos__grid")[0].innerHTML = '';
         }
         inyect(game);
         counter++;
       }
 
     });
-    localStorage.setItem('filtrado',JSON.stringify(arregloFiltrado));
+    localStorage.setItem('filtrado', JSON.stringify(arregloFiltrado));
   } else {
     gamesArray.forEach((game) => {
       inyect(game);
