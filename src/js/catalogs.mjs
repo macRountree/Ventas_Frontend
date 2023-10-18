@@ -2,6 +2,7 @@ import { axiosCommon } from "./common/axios.js";
 const axios = window.axios;
 // Código especifico para Catalogo
 // https://stackoverflow.com/questions/70566856/cors-the-access-control-allow-origin-header-has-a-value-http-localhost300
+
 async function getGames() {
   const { data: { data } } = await axiosCommon.getAll(axios,'/api/catalogs');
 

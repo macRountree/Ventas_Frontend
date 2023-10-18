@@ -645,7 +645,7 @@ ul {
   z-index: 1;
   background-color: rgba(18, 8, 52, 0.7882352941);
   padding: 20px;
-  min-height: 400px;
+  min-height: auto;
   min-width: 300px;
 }
 
@@ -664,4 +664,12 @@ ul {
 
 #vaciar-carrito {
   margin-top: 5rem;
+}
+
+#empty-cart {
+  color: #ffffff;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
 }

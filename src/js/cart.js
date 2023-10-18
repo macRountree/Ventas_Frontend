@@ -6,6 +6,7 @@
 const carrito = document.querySelector("#carrito");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const vaciarCart = document.querySelector("#vaciar-carrito");
+const comprarCart = document.querySelector("#comprar-carrito");
 const listaCursos = document.querySelector("#lista-cursos");
 //utilizamos let porque ira cambiando... tambien ponemos el arreglo vacio proque se ira llenando
 let articulosCarrito = [];
@@ -23,7 +24,10 @@ function cargarEventos() {
   //vaciar carrito
   vaciarCart.addEventListener("click", () => {
     articulosCarrito = []; // Reseteamos el carrit
+    document.getElementById('lista-carrito').setAttribute('hidden',null);
+    document.getElementById('empty-cart').removeAttribute('hidden');
     vaciarCart.setAttribute('hidden',null);
+    comprarCart.setAttribute('hidden',null);
     limpiarHtml(); //eliminamos html
   });
 }
@@ -37,6 +41,9 @@ function agregarCurso(e) {
     console.log(cursoSelec);
     leerDatos(cursoSelec);
     vaciarCart.removeAttribute('hidden');
+    comprarCart.removeAttribute('hidden');
+    document.getElementById('empty-cart').setAttribute('hidden',null);
+    document.getElementById('lista-carrito').removeAttribute('hidden');
   }
 }
 
@@ -50,7 +57,10 @@ function eliminarCurso(e) {
     articulosCarrito = articulosCarrito.filter((curso) => curso.id !== cursoId);
     console.log(articulosCarrito);
     if (articulosCarrito.length===0) {
+      document.getElementById('lista-carrito').setAttribute('hidden',null);
+      document.getElementById('empty-cart').removeAttribute('hidden');
       vaciarCart.setAttribute('hidden',null);
+      comprarCart.setAttribute('hidden',null);
     }
     
     
@@ -149,4 +159,9 @@ function limpiarHtml() {
   while (contenedorCarrito.firstChild) {
     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
   }
+}
+
+//Agregar carrito a las ventas
+function comprarCarrito(){
+
 }

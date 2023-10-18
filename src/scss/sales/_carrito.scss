@@ -16,7 +16,7 @@
     z-index: 1;
     background-color: v.$primario;
     padding: 20px;
-    min-height: 400px;
+    min-height: auto;
     min-width: 300px;
   }
 }
@@ -37,4 +37,12 @@
   margin-top: 5rem;
  // margin: ;
   
+}
+
+#empty-cart{
+  color: v.$blanco;
+}
+
+.mb-2{
+  margin-bottom: 2rem;
 }
