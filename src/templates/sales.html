@@ -3,15 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ventas</title>
 
     <link rel="stylesheet" href="../../assets/css/app.css" />
@@ -39,6 +30,91 @@
         </ul>
       </nav>
     </header>
+    <main class="contenedor">
+      <div class="sales flex">
+        <h1 class="text-center sales__heading">VENTAS</h1>
+
+        <button id="addSale" class="sales__btn btn-action">
+          Agregar Nueva Venta
+        </button>
+      </div>
+
+      <br />
+
+      <form id="filter-form" class="filtro flex">
+        <select
+          id="realEstate-filter"
+          class="filtro__select--sales"
+          placeholder="Modelo de Casa"
+        >
+          <option value="Seleccionar" disabled selected>
+            Selecciona la Plataforma
+          </option>
+          <option data-id="1" value="play">PlayStation</option>
+          <option data-id="2" value="switch">Switch</option>
+          <option data-id="3" value="xbox">Xbox</option>
+        </select>
+        <div class="filtro__flex">
+          <input
+            type="text"
+            id="customer-filter"
+            placeholder="Nombre del Cliente"
+            class="filtro__input"
+          />
+          <input
+            type="text"
+            id="salesman-filter"
+            placeholder="Nombre del Vendedor"
+            class="filtro__input"
+          />
+          <input
+            type="date"
+            id="date-filter"
+            placeholder="Precio máximo"
+            class="filtro__input"
+          />
+        </div>
+        <div class="filtro__botones">
+          <button
+            type="submit"
+            id="apply-filters"
+            class="sales__btn btn-submit"
+          >
+            Aplicar filtros
+          </button>
+          <button type="reset" id="reset-filters" class="btn sales__btn">
+            Restablecer
+          </button>
+        </div>
+      </form>
+
+      <br />
+
+      <div class="table-container">
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>No. Venta</th>
+              <th>Cantidad</th>
+              <th>Videojuego</th>
+              <th>Vendedor</th>
+              <th>Fecha de Venta</th>
+              <th class="text-right">Precio de Venta</th>
+            </tr>
+          </thead>
+          <tbody id="data-table-body">
+            <!-- LLENAREMOS LA TABLA CON DATOS CONSUMIDOS DESDE UNA API -->
+          </tbody>
+        </table>
+      </div>
+
+      <div id="message" class="message">
+        <p>No se han realizado ventas.</p>
+      </div>
+
+      <div id="modalBackground" class="modal-background"></div>
+    </main>
 
     <footer class="footer">
       <div class="header__sitename contenedor">

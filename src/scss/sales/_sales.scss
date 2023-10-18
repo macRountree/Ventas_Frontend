@@ -1,0 +1,50 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.sales {
+  &__btn {
+    @include m.botonSales(v.$primario, v.$blanco);
+    display: block;
+  }
+  &__heading {
+    color: v.$primario;
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.filtro {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  &__select--sales {
+    display: block;
+    margin-bottom: 0;
+    padding: 1rem;
+    background-color: v.$primario;
+    color: v.$blanco;
+    font-weight: bold;
+    border-radius: 1rem;
+  }
+
+  &__flex {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__input {
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: v.$primario;
+    color: v.$blanco;
+    font-weight: bold;
+  }
+  &__botones {
+    display: flex;
+
+    gap: 1rem;
+  }
+}
