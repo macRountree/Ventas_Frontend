@@ -1,5 +1,7 @@
 // ===========PROYECTO CARRITO===========
 
+import { fetchApi } from "./common/fetch.js";
+
 //VARIABLES
 //usamos querySelector porq nomas tenemos 1 carrito
 //seleccionamos todos los ids que esten dentro del carrito
@@ -23,16 +25,21 @@ function cargarEventos() {
 
   //vaciar carrito
   vaciarCart.addEventListener("click", () => {
-    articulosCarrito = []; // Reseteamos el carrit
-    document.getElementById('lista-carrito').setAttribute('hidden',null);
-    document.getElementById('empty-cart').removeAttribute('hidden');
-    vaciarCart.setAttribute('hidden',null);
-    comprarCart.setAttribute('hidden',null);
-    limpiarHtml(); //eliminamos html
+    vaciarCarrito();
   });
 }
 
 //Functions
+
+function vaciarCarrito(){
+  articulosCarrito = []; // Reseteamos el carrit
+  document.getElementById('lista-carrito').setAttribute('hidden',null);
+  document.getElementById('empty-cart').removeAttribute('hidden');
+  vaciarCart.setAttribute('hidden',null);
+  comprarCart.setAttribute('hidden',null);
+  limpiarHtml(); //eliminamos html
+}
+
 //Lo agregamos a cargarEventos()
 function agregarCurso(e) {
   e.preventDefault();
@@ -162,6 +169,23 @@ function limpiarHtml() {
 }
 
 //Agregar carrito a las ventas
-function comprarCarrito(){
+comprarCart.addEventListener('click',function(){
+  comprarCarrito();
+});
+async function comprarCarrito(){
+  const articulos = articulosCarrito.map(articulo=>{
+    let fecha = (new Date()).toISOString().substring(0, 10);
+    console.log(fecha);
+    let newArticulo = {idProducto:articulo.id,fecha,...articulo};
+    delete newArticulo.id;
+    delete newArticulo.titulo; 
+    delete newArticulo.imagen;
+    return newArticulo;
+  });
+  console.log(articulos);
 
+  const data = await fetchApi.createMany('/api/sales/many/1',articulos);
+  console.log(data);
+  vaciarCarrito();
 }
+
