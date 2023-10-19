@@ -184,8 +184,12 @@ async function comprarCarrito(){
   });
   console.log(articulos);
 
-  const data = await fetchApi.createMany('/api/sales/many/1',articulos);
-  console.log(data);
+  articulos.forEach(async articulo=>{
+    await fetchApi.create('/api/sales',articulo);
+  });
+
+  
+  
   vaciarCarrito();
 }
 
