@@ -455,7 +455,7 @@ table tbody tr {
 }
 
 table tbody tr:nth-of-type(even) {
-  background-color: #f3f6f9;
+  background-color: rgba(18, 8, 52, 0.7882352941);
 }
 
 table tbody tr:last-of-type {

@@ -1,15 +1,13 @@
-// ===========PROYECTO CARRITO===========
-
-import { fetchApi } from "./common/fetch.js";
+import { fetchApi } from './common/fetch.js';
 
 //VARIABLES
 //usamos querySelector porq nomas tenemos 1 carrito
 //seleccionamos todos los ids que esten dentro del carrito
-const carrito = document.querySelector("#carrito");
-const contenedorCarrito = document.querySelector("#lista-carrito tbody");
-const vaciarCart = document.querySelector("#vaciar-carrito");
-const comprarCart = document.querySelector("#comprar-carrito");
-const listaCursos = document.querySelector("#lista-cursos");
+const carrito = document.querySelector('#carrito');
+const contenedorCarrito = document.querySelector('#lista-carrito tbody');
+const vaciarCart = document.querySelector('#vaciar-carrito');
+const comprarCart = document.querySelector('#comprar-carrito');
+const listaCursos = document.querySelector('#lista-cursos');
 //utilizamos let porque ira cambiando... tambien ponemos el arreglo vacio proque se ira llenando
 let articulosCarrito = [];
 
@@ -18,38 +16,38 @@ cargarEventos();
 //Aqui hacemos esta funcion para nuestros eventos del carrito
 function cargarEventos() {
   //Cuando damos click en Agregar al carrito, agregarCurso es una funcion que definimos abajo
-  listaCursos.addEventListener("click", agregarCurso);
+  listaCursos.addEventListener('click', agregarCurso);
 
   //Eliminar cursos del carrito
-  carrito.addEventListener("click", eliminarCurso);
+  carrito.addEventListener('click', eliminarCurso);
 
   //vaciar carrito
-  vaciarCart.addEventListener("click", () => {
+  vaciarCart.addEventListener('click', () => {
     vaciarCarrito();
   });
 }
 
 //Functions
 
-function vaciarCarrito(){
+function vaciarCarrito() {
   articulosCarrito = []; // Reseteamos el carrit
-  document.getElementById('lista-carrito').setAttribute('hidden',null);
+  document.getElementById('lista-carrito').setAttribute('hidden', null);
   document.getElementById('empty-cart').removeAttribute('hidden');
-  vaciarCart.setAttribute('hidden',null);
-  comprarCart.setAttribute('hidden',null);
+  vaciarCart.setAttribute('hidden', null);
+  comprarCart.setAttribute('hidden', null);
   limpiarHtml(); //eliminamos html
 }
 
 //Lo agregamos a cargarEventos()
 function agregarCurso(e) {
   e.preventDefault();
-  if (e.target.classList.contains("agregar-carrito")) {
+  if (e.target.classList.contains('agregar-carrito')) {
     const cursoSelec = e.target.parentElement.parentElement;
-    console.log(cursoSelec);
+    // console.log(cursoSelec);
     leerDatos(cursoSelec);
     vaciarCart.removeAttribute('hidden');
     comprarCart.removeAttribute('hidden');
-    document.getElementById('empty-cart').setAttribute('hidden',null);
+    document.getElementById('empty-cart').setAttribute('hidden', null);
     document.getElementById('lista-carrito').removeAttribute('hidden');
   }
 }
@@ -58,19 +56,18 @@ function agregarCurso(e) {
 
 function eliminarCurso(e) {
   console.log(e.target.classList);
-  if (e.target.classList.contains("borrar-curso")) {
-    const cursoId = e.target.getAttribute("data-id");
+  if (e.target.classList.contains('borrar-curso')) {
+    const cursoId = e.target.getAttribute('data-id');
 
-    articulosCarrito = articulosCarrito.filter((curso) => curso.id !== cursoId);
+    articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
     console.log(articulosCarrito);
-    if (articulosCarrito.length===0) {
-      document.getElementById('lista-carrito').setAttribute('hidden',null);
+    if (articulosCarrito.length === 0) {
+      document.getElementById('lista-carrito').setAttribute('hidden', null);
       document.getElementById('empty-cart').removeAttribute('hidden');
-      vaciarCart.setAttribute('hidden',null);
-      comprarCart.setAttribute('hidden',null);
+      vaciarCart.setAttribute('hidden', null);
+      comprarCart.setAttribute('hidden', null);
     }
-    
-    
+
     carritoHtml(); //iteramos sobre el carrito para que cambie su html
   }
 }
@@ -85,10 +82,10 @@ function leerDatos(curso) {
   const infoCurso = {
     //EN lugar de usar document usamos curso que estamos usando
     //para leer datos
-    imagen: curso.querySelector("img").src,
-    titulo: curso.querySelector("h3").textContent,
-    precio: curso.querySelector(".producto__precio").textContent,
-    id: curso.querySelector("a").getAttribute("data-id"),
+    imagen: curso.querySelector('img').src,
+    titulo: curso.querySelector('h3').textContent,
+    precio: curso.querySelector('.producto__precio').textContent,
+    id: curso.querySelector('a').getAttribute('data-id'),
     cantidad: 1,
   };
 
@@ -96,11 +93,11 @@ function leerDatos(curso) {
 
   //Revisar si un elemento ya existe
   //itera en los articulos del carrito agregado y revisa si los id de curso e infocurso
-  const exist = articulosCarrito.some((curso) => curso.id === infoCurso.id);
+  const exist = articulosCarrito.some(curso => curso.id === infoCurso.id);
   if (exist) {
     //Actualizamos la cantidad
 
-    const cursos = articulosCarrito.map((curso) => {
+    const cursos = articulosCarrito.map(curso => {
       if (curso.id === infoCurso.id) {
         curso.cantidad++;
         return curso; //retorna el objeto actualizado
@@ -128,9 +125,9 @@ function carritoHtml() {
   //Limpiar el html
   limpiarHtml();
   //iteramos arreglos con forEach para cada curso
-  articulosCarrito.forEach((curso) => {
+  articulosCarrito.forEach(curso => {
     const { imagen, titulo, precio, cantidad, id } = curso;
-    const row = document.createElement("tr");
+    const row = document.createElement('tr');
     row.innerHTML = `
     <td>
       <img src='${/*curso.*/ imagen}' width ='100'  >
@@ -169,27 +166,24 @@ function limpiarHtml() {
 }
 
 //Agregar carrito a las ventas
-comprarCart.addEventListener('click',function(){
+comprarCart.addEventListener('click', function () {
   comprarCarrito();
 });
-async function comprarCarrito(){
-  const articulos = articulosCarrito.map(articulo=>{
-    let fecha = (new Date()).toISOString().substring(0, 10);
+async function comprarCarrito() {
+  const articulos = articulosCarrito.map(articulo => {
+    let fecha = new Date().toISOString().substring(0, 10);
     console.log(fecha);
-    let newArticulo = {idProducto:+articulo.id,fecha,...articulo};
+    let newArticulo = { idProducto: +articulo.id, fecha, ...articulo };
     delete newArticulo.id;
-    delete newArticulo.titulo; 
+    delete newArticulo.titulo;
     delete newArticulo.imagen;
     return newArticulo;
   });
   console.log(articulos);
 
-  articulos.forEach(async articulo=>{
-    await fetchApi.create('/api/sales',articulo);
+  articulos.forEach(async articulo => {
+    await fetchApi.create('/api/sales', articulo);
   });
 
-  
-  
   vaciarCarrito();
 }
-
