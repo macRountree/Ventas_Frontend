@@ -60,6 +60,7 @@ function filterApp(filter) {
 }
 
 function inyect(game) {
+  const { src, name, plataforma, precio, descripcion, id } = game;
   let divProductosGrid = document.getElementsByName('productos__grid')[0];
   // console.log(divProductosGrid);
   let divProducto = document.createElement('div');
@@ -67,7 +68,7 @@ function inyect(game) {
 
   let imgProduct = document.createElement('img');
   imgProduct.className += 'producto__imagen';
-  imgProduct.setAttribute('src', `../../assets/img/${game.src}`);
+  imgProduct.setAttribute('src', `../../assets/img/${src}`);
   imgProduct.setAttribute('alt', 'cover_01 webp');
 
   divProducto.appendChild(imgProduct);
@@ -77,7 +78,7 @@ function inyect(game) {
 
   let h3ProductoName = document.createElement('h3');
   h3ProductoName.className += 'producto__nombre';
-  h3ProductoName.innerText = game.name;
+  h3ProductoName.innerText = name;
 
   divProductoContainer.appendChild(h3ProductoName);
 
@@ -93,7 +94,7 @@ function inyect(game) {
   let divProductoPlataforma = document.createElement('div');
   divProductoPlataforma.className += 'producto__plataforma';
 
-  const gamePlatform = Object.values(game.plataforma);
+  const gamePlatform = Object.values(plataforma);
 
   gamePlatform.forEach(source => {
     let imgPlataforma = document.createElement('img');
@@ -110,7 +111,7 @@ function inyect(game) {
 
   let pProductoDescripcion = document.createElement('p');
   pProductoDescripcion.className += 'producto__descripcion';
-  pProductoDescripcion.innerHTML = game.descripcion;
+  pProductoDescripcion.innerHTML = descripcion;
 
   divProductoContainer.appendChild(pProductoDescripcion);
 
@@ -133,14 +134,14 @@ function inyect(game) {
 
   let pPrecio = document.createElement('p');
   pPrecio.className += 'producto__precio';
-  pPrecio.innerHTML = `$${game.precio}`;
+  pPrecio.innerHTML = `$${precio}`;
 
   divProductoContainer.appendChild(pPrecio);
 
   let aAñadirVenta = document.createElement('a');
   aAñadirVenta.className += 'producto__btn agregar-carrito ';
   aAñadirVenta.setAttribute('href', '');
-  aAñadirVenta.setAttribute('data-id', `${game.id}`);
+  aAñadirVenta.setAttribute('data-id', `${id}`);
   aAñadirVenta.innerHTML = 'Añadir a Carrito';
 
   divProductoContainer.appendChild(aAñadirVenta);
