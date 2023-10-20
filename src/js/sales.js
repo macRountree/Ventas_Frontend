@@ -28,7 +28,7 @@ function getNames(sales) {
     let game = fetchApi.getById(`${endpointGames}/${sale.idProducto}`);
     console.log(sale, game);
     delete sale.idProducto;
-    return { name: game.name, imagen: game.imagen, ...sale };
+    return { name: game.name, ...sale };
   });
   console.log(newSalesArray);
 }
