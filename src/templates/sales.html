@@ -39,7 +39,13 @@
 
       <form id="filter-form" class="filtro flex">
         <div class="filtro__flex">
-          <input id="precio-filtro" type="number" placeholder="Precio" class="filtro__input" />
+          <input
+            id="precio-filtro"
+            type="number"
+            placeholder="Precio"
+            class="filtro__input"
+            min="0"
+          />
           <input id="date-filter" type="date" class="filtro__input" />
         </div>
         <div class="filtro__botones">
