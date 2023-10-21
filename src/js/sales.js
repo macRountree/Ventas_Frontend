@@ -14,13 +14,39 @@ const applyFilter = document.getElementById('apply-filters');
 applyFilter.addEventListener('click', async e => {
   e.preventDefault();
   const date = document.getElementById('date-filter').value;
+  const price = document.getElementById('precio-filtro').value;
 
+  if (date !== '' || price !== '') {
+    let dateFilter = `fecha=${date}`;
+    let result = await fetchApi.getAll(`${endpointSales}?${dateFilter}`);
+    let data = await getNames(result);
+
+    let newData = data.filter(sale => +sale.precio.split('$')[1] >= +price);
+    inyectProduct(newData);
+    return;
+  }
   if (date !== '') {
     let dateFilter = `fecha=${date}`;
     let result = await fetchApi.getAll(`${endpointSales}?${dateFilter}`);
     let data = await getNames(result);
     inyectProduct(data);
+    return;
   }
+  if (price !== '') {
+    let result = await fetchApi.getAll(`${endpointSales}`);
+    let data = await getNames(result);
+
+    let newData = data.filter(sale => +sale.precio.split('$')[1] >= +price);
+    inyectProduct(newData);
+    return;
+  }
+});
+
+const reset = document.getElementById('reset-filters');
+reset.addEventListener('click', async () => {
+  let result = await fetchApi.getAll(`${endpointSales}`);
+  let data = await getNames(result);
+  inyectProduct(data);
 });
 
 tbody.addEventListener('click', eliminarVenta);
@@ -55,7 +81,6 @@ async function eliminarVenta(e) {
     const newSales = await fetchApi.getAll(endpointSales);
     const newData = await getNames(newSales);
     inyectProduct(newData);
-    //iteramos sobre el carrito para que cambie su html
   }
 }
 

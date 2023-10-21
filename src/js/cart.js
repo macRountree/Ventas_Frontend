@@ -173,6 +173,7 @@ async function comprarCarrito() {
   const articulos = articulosCarrito.map(articulo => {
     let fecha = new Date().toISOString().substring(0, 10);
     console.log(fecha);
+    articulo.precio = `$${+articulo.precio.split('$')[1]*+articulo.cantidad}`;
     let newArticulo = { idProducto: +articulo.id, fecha, ...articulo };
     delete newArticulo.id;
     delete newArticulo.titulo;
