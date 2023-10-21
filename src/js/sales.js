@@ -3,10 +3,12 @@ import { fetchApi } from './common/fetch.js';
 const endpointSales = '/api/sales/';
 const endpointGames = '/api/catalogs';
 
+const tbody = document.querySelector('#data-table-body');
 const result = await fetchApi.getAll('/api/sales/');
 const data = await getNames(result);
 console.log(data);
-//getNames(result);
+
+message(result);
 // buttons
 const applyFilter = document.getElementById('apply-filters');
 applyFilter.addEventListener('click', async e => {
@@ -17,12 +19,19 @@ applyFilter.addEventListener('click', async e => {
     let dateFilter = `fecha=${date}`;
     let result = await fetchApi.getAll(`${endpointSales}?${dateFilter}`);
     let data = await getNames(result);
-    console.log(data);
+    inyectProduct(data);
   }
 });
 
-// funciones
+tbody.addEventListener('click', eliminarVenta);
 
+// funciones
+function message(array) {
+  if (array.length !== 0) {
+    const divMessage = document.querySelector('#message');
+    divMessage.setAttribute('hidden', null);
+  }
+}
 async function getNames(sales) {
   let newSalesArray = [];
   newSalesArray = await Promise.all(
@@ -35,47 +44,89 @@ async function getNames(sales) {
   );
   return newSalesArray;
 }
+
+async function eliminarVenta(e) {
+  console.log(e.target.classList);
+  if (e.target.classList.contains('borrar-venta')) {
+    const ventaId = e.target.getAttribute('data-id');
+
+    console.log(ventaId);
+    await fetchApi.delete(`${endpointSales}${ventaId}`);
+    const newSales = await fetchApi.getAll(endpointSales);
+    const newData = await getNames(newSales);
+    inyectProduct(newData);
+    //iteramos sobre el carrito para que cambie su html
+  }
+}
+
 //console.log(await getNames(result));
 // inyeccion
 
-async function inyectProduct(productos) {
-  const tbody = document.querySelector('#data-table-body');
-
+function inyectProduct(productos) {
+  tbody.innerHTML = '';
   productos.forEach(producto => {
+    const row = document.createElement('tr');
     const { id, name, cantidad, fecha, precio, image } = producto;
     console.log(
       ` Venta: ${id} ${name} ${precio} ${cantidad} ${fecha} ${image}`
     );
 
     //img
+    const imgTd = document.createElement('td');
     let imgTabla = document.createElement('img');
     imgTabla.setAttribute('src', `../../assets/img/${image}`);
     imgTabla.setAttribute('alt', 'cover_01 webp');
-    tbody.appendChild(imgTabla);
+    imgTd.appendChild(imgTabla);
+    row.appendChild(imgTd);
 
     //No.venta
-    const idTable = document.createElement('td');
+    const idTd = document.createElement('td');
+    const idTable = document.createElement('p');
     idTable.innerText = id;
-    tbody.appendChild(idTable);
+    idTd.appendChild(idTable);
+    row.appendChild(idTd);
 
-    const titleTable = document.createElement('td');
+    // videojuego
+    const titleTd = document.createElement('td');
+    const titleTable = document.createElement('p');
     titleTable.innerText = name;
 
-    tbody.appendChild(titleTable);
+    titleTd.appendChild(titleTable);
+    row.appendChild(titleTd);
     //cantidad
 
-    const cantTable = document.createElement('td');
+    const cantTd = document.createElement('td');
+    const cantTable = document.createElement('p');
     cantTable.innerText = cantidad;
-    tbody.appendChild(cantTable);
+    cantTd.appendChild(cantTable);
+    row.appendChild(cantTd);
     //precio
-    const precioTab = document.createElement('td');
+    const precioTd = document.createElement('td');
+    const precioTab = document.createElement('p');
     precioTab.innerText = precio;
-    tbody.appendChild(precioTab);
+    precioTd.appendChild(precioTab);
+    row.appendChild(precioTd);
 
     //fecha
-    const fechaTable = document.createElement('td');
+    const fechaTd = document.createElement('td');
+    const fechaTable = document.createElement('p');
     fechaTable.innerText = fecha;
-    fechaTable.appendChild(tbody);
+    fechaTd.appendChild(fechaTable);
+    row.appendChild(fechaTd);
+
+    // boton eliminar venta
+    const borrarVentaTd = document.createElement('td');
+    const borrarVentaTable = document.createElement('button');
+    borrarVentaTable.setAttribute('data-id', id);
+    borrarVentaTable.innerText = 'Eliminar';
+    borrarVentaTable.classList += 'borrar-venta';
+
+    borrarVentaTd.appendChild(borrarVentaTable);
+    row.appendChild(borrarVentaTd);
+
+    // inyect to tbody
+
+    tbody.appendChild(row);
   });
 }
 
