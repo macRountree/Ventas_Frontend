@@ -452,6 +452,14 @@ table thead tr th {
 
 table tbody tr {
   border-bottom: none;
+  background-color: rgba(18, 8, 52, 0.7882352941);
+  color: #ffffff;
+  font-weight: bold;
+}
+
+table tbody tr p {
+  color: #ffffff;
+  font-weight: bold;
 }
 
 table tbody tr:nth-of-type(even) {
@@ -466,6 +474,7 @@ table tbody tr td {
   padding: 1rem 1.25rem;
   border: none;
   white-space: wrap;
+  color: #ffffff;
 }
 
 table tbody tr td img {
@@ -795,4 +804,21 @@ table tbody tr td img {
 .filtro__botones {
   display: flex;
   gap: 1rem;
+}
+.filtro__p {
+  color: #ffffff;
+}
+
+.borrar-venta {
+  background-color: red;
+  border-radius: 1rem;
+  padding: 1rem 0.5rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.borrar-venta:hover {
+  background-color: #ff6666;
+  cursor: pointer;
 }

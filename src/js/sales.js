@@ -82,6 +82,7 @@ function inyectProduct(productos) {
     //No.venta
     const idTd = document.createElement('td');
     const idTable = document.createElement('p');
+    idTable.classList.add('sales__p');
     idTable.innerText = id;
     idTd.appendChild(idTable);
     row.appendChild(idTd);
