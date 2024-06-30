@@ -46,14 +46,11 @@ function dev(done) {
 
   done();
 }
-const build = series(css, parallel(image, versionWebp));
 
 exports.css = css;
 exports.image = image;
 exports.versionWebp = versionWebp;
 exports.dev = parallel(image, versionWebp, dev);
-exports.build = build;
-exports.default = build;
 
 /** Instalar despues de terminar el proyectos
  * Autoprefixer: es para que el css soporte en todos los navegadores
